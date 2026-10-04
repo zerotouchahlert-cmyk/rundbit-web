@@ -1,0 +1,11 @@
+# Betriebssystem / Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Werkzeuge (gehören nicht ins Repo)
+node_modules/
+*.log
+*.tmp
