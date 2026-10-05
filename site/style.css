@@ -337,6 +337,9 @@ h3 {
   opacity: .045;
   pointer-events: none;
 }
+@media (max-width: 767px) {
+  .hero-ring { display: none; }   /* mobil nicht hinter der H1 */
+}
 .hero-grid {
   position: relative;
   display: grid;
@@ -352,6 +355,9 @@ h3 {
   gap: .5rem 1.4rem;
   font-size: .9375rem;
   color: var(--muted);
+}
+@media (min-width: 1024px) {
+  .trust { flex-wrap: nowrap; gap: 1.1rem; white-space: nowrap; }
 }
 
 @media (min-width: 960px) {
@@ -421,9 +427,13 @@ h3 {
   border-top: 1px solid var(--line);
   background: var(--paper);
   border-radius: 0 0 var(--radius) var(--radius);
-  text-wrap: balance;
   font-size: .875rem;
   color: var(--muted);
+}
+/* schmal: beide Teile untereinander, ohne Mittelpunkt */
+@media (max-width: 479px) {
+  .flow-foot span:not(.flow-foot-sep) { display: block; }
+  .flow-foot-sep { display: none; }
 }
 
 @media (min-width: 960px) {
@@ -533,15 +543,6 @@ h3 {
   border-radius: calc(var(--radius) + 4px);
   padding: clamp(1.75rem, 1rem + 3.5vw, 3.75rem);
 }
-.project-ring {
-  position: absolute;
-  width: clamp(280px, 40vw, 460px);
-  right: clamp(-200px, -10vw, -80px);
-  bottom: clamp(-200px, -12vw, -90px);
-  color: var(--paper);
-  opacity: .05;
-  pointer-events: none;
-}
 .project-body { position: relative; max-width: 40rem; }
 .project-title {
   font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
@@ -568,6 +569,28 @@ h3 {
   font-family: var(--font-display);
   font-weight: 500;
   font-variant-numeric: tabular-nums;
+}
+/* Desktop: Fakten als eigene Spalte rechts, damit die Karte nicht halb leer ist */
+@media (min-width: 900px) {
+  .project-body {
+    max-width: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    column-gap: clamp(2.5rem, 1rem + 4vw, 5rem);
+  }
+  .project-body > :not(.facts) { grid-column: 1; }
+  .facts {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-top: 0;
+    padding: .5rem 0 .5rem clamp(1.75rem, 1rem + 2vw, 2.5rem);
+    border-top: 0;
+    border-left: 1px solid var(--dark-line);
+    font-size: 1.1875rem;
+  }
 }
 .more { margin-top: 1.5rem; font-size: .9375rem; color: var(--dark-muted); }
 
@@ -697,3 +720,20 @@ h3 {
     to   { opacity: 1; transform: none; }
   }
 }
+
+/* ---------- Rechtliche Seiten ---------- */
+.legal { padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem) clamp(4rem, 3rem + 4vw, 6.5rem); }
+.legal-inner > * { max-width: 45rem; }
+.legal-back { margin-bottom: 1.5rem; font-family: var(--font-display); font-weight: 500; font-size: .9375rem; }
+.legal-back a { text-decoration: none; color: var(--muted); }
+.legal-back a:hover { color: var(--ink); text-decoration: underline; }
+.legal h1 { font-size: clamp(1.875rem, 1.3rem + 2.6vw, 3.25rem); hyphens: auto; margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
+.legal h2 {
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  margin-top: 2.25rem;
+  margin-bottom: .6rem;
+}
+.legal p { color: var(--ink); }
+.legal p + p { margin-top: .9rem; }
+.legal-stand { margin-top: 2.5rem !important; font-size: .875rem; color: var(--muted) !important; }
