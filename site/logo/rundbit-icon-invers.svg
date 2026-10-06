@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Rundbit">
+  <title>Rundbit</title>
+  <path d="M60 18 A42 42 0 1 1 30.3 30.3" fill="none" stroke="#F5F4EF" stroke-width="15.0" stroke-linecap="round"/>
+  <rect x="49.5" y="49.5" width="21" height="21" rx="5.5" fill="#E2641E"/>
+</svg>
